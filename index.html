@@ -182,6 +182,53 @@
             transform: translateY(-3px);
         }
 
+        /* ── REVIEW BUTTON ───────────────────────────────────── */
+        .btn-review {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 15px 36px; border-radius: 60px;
+            font-weight: 700; font-size: .92rem; text-decoration: none;
+            transition: background .3s, transform .3s, box-shadow .3s, border-color .3s;
+            cursor: pointer;
+        }
+        .btn-review-hero {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,.55);
+            color: var(--white);
+            backdrop-filter: blur(6px);
+            margin-top: 18px;
+        }
+        .btn-review-hero:hover {
+            border-color: #f5c842;
+            color: #f5c842;
+            transform: translateY(-3px);
+        }
+        .btn-review-section {
+            background: var(--blue); color: var(--white);
+            border: 2px solid var(--blue);
+            box-shadow: 0 6px 28px rgba(43,130,201,.30);
+        }
+        .btn-review-section:hover {
+            background: var(--blue-d); border-color: var(--blue-d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(43,130,201,.40);
+        }
+        .btn-review-footer {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,.3);
+            color: rgba(255,255,255,.85);
+        }
+        .btn-review-footer:hover {
+            border-color: #f5c842; color: #f5c842;
+            transform: translateY(-3px);
+        }
+        .review-cta {
+            text-align: center; margin-top: 48px;
+        }
+        .review-cta p {
+            color: var(--text-2); font-size: .92rem; margin-bottom: 16px;
+        }
+        .ft-review { margin: 22px 0; }
+
         /* scroll mouse */
         .scroll-hint {
             position: absolute; bottom: 130px; left: 50%;
@@ -596,6 +643,13 @@
                 Get Directions
             </a>
         </div>
+        <div style="text-align:center;margin-top:18px;animation:fadeUp .9s ease .8s both">
+            <a href="https://search.google.com/local/writereview?placeid=ChIJU4dqHxtvlRQRU2eiiZjeW0I"
+               target="_blank" rel="noopener"
+               class="btn-review btn-review-hero">
+                ★&thinsp;★&thinsp;★&thinsp;★&thinsp;★&ensp; Αφήστε μια κριτική στο Google
+            </a>
+        </div>
     </div>
 
     <div class="scroll-hint">
@@ -774,6 +828,14 @@
                 <p class="rv-text">"Manolis is the right person in the right place — friendly, hospitable, eager to serve. You will never leave dissatisfied. Relax, enjoy your food and their warm hospitality."</p>
             </div>
         </div>
+        <div class="review-cta reveal">
+            <p>Σας άρεσε η εμπειρία σας; Μοιραστείτε την με άλλους!</p>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJU4dqHxtvlRQRU2eiiZjeW0I"
+               target="_blank" rel="noopener"
+               class="btn-review btn-review-section">
+                ★&thinsp;★&thinsp;★&thinsp;★&thinsp;★&ensp; Γράψτε μια κριτική στο Google
+            </a>
+        </div>
     </div>
 </section>
 
@@ -892,6 +954,13 @@
         <a href="#gallery">Gallery</a>
         <a href="#location">Location</a>
         <a href="tel:2241051280">2241 051280</a>
+    </div>
+    <div class="ft-review">
+        <a href="https://search.google.com/local/writereview?placeid=ChIJU4dqHxtvlRQRU2eiiZjeW0I"
+           target="_blank" rel="noopener"
+           class="btn-review btn-review-footer">
+            ★&thinsp;★&thinsp;★&thinsp;★&thinsp;★&ensp; Αφήστε κριτική στο Google
+        </a>
     </div>
     <div class="ft-copy">© 2024 Avantis Fish Restaurant · Afantou 851 03, Rhodes, Greece</div>
 </footer>
