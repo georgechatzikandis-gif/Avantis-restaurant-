@@ -354,7 +354,16 @@
             box-shadow: var(--shadow-h);
         }
         .menu-card:hover .menu-card-glow { opacity: 1; }
-        .menu-em { font-size: 2.6rem; margin-bottom: 16px; }
+        .menu-em {
+            width: 56px; height: 56px; margin-bottom: 20px;
+            background: var(--blue-pale);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            transition: background .3s, transform .3s;
+        }
+        .menu-em svg { width: 28px; height: 28px; color: var(--blue); fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+        .menu-card:hover .menu-em { background: var(--blue); transform: scale(1.08); }
+        .menu-card:hover .menu-em svg { color: var(--white); }
         .menu-card h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.2rem; margin-bottom: 10px; color: var(--text);
@@ -718,42 +727,42 @@
         <div class="menu-grid">
             <div class="menu-card reveal">
                 <div class="menu-card-glow"></div>
-                <div class="menu-em">🐟</div>
+                <div class="menu-em"><svg viewBox="0 0 24 24"><path d="M21 12c0 0-3-6-9-6S3 12 3 12s3 6 9 6 9-6 9-6z"/><path d="M21 12l2-3M21 12l2 3"/><circle cx="9" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div>
                 <h3>Fresh Fish of the Day</h3>
                 <p>Choose your own fresh catch — grouper, sea bream, dentex — and have it grilled to perfection right in front of you.</p>
                 <span class="menu-pill">Daily Catch</span>
             </div>
             <div class="menu-card reveal">
                 <div class="menu-card-glow"></div>
-                <div class="menu-em">🦐</div>
+                <div class="menu-em"><svg viewBox="0 0 24 24"><path d="M12 3c0 0 4 2 4 7 0 3-2 5-4 6"/><path d="M12 3c0 0-4 2-4 7 0 3 2 5 4 6"/><path d="M8 16c-2 1-3 3-2 5"/><path d="M16 16c2 1 3 3 2 5"/><path d="M12 16v3"/><circle cx="12" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg></div>
                 <h3>Symi Shrimp Saganaki</h3>
                 <p>Our legendary dish — premium shrimp from Symi waters, baked in rich tomato sauce with feta cheese. A house obsession.</p>
                 <span class="menu-pill">House Specialty</span>
             </div>
             <div class="menu-card reveal">
                 <div class="menu-card-glow"></div>
-                <div class="menu-em">🦑</div>
+                <div class="menu-em"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="8" rx="4" ry="5"/><path d="M8 11c0 0-4 2-4 7"/><path d="M16 11c0 0 4 2 4 7"/><path d="M10 13l-2 8"/><path d="M14 13l2 8"/><path d="M12 13v8"/></svg></div>
                 <h3>Freshly Caught Calamari</h3>
                 <p>Tender calamari grilled or lightly fried, served with a wedge of lemon. Perfectly simple, perfectly Greek.</p>
                 <span class="menu-pill">Freshly Caught</span>
             </div>
             <div class="menu-card reveal">
                 <div class="menu-card-glow"></div>
-                <div class="menu-em">🥗</div>
+                <div class="menu-em"><svg viewBox="0 0 24 24"><path d="M3 11h18"/><path d="M5 11C5 7 8 4 12 4s7 3 7 7"/><path d="M5 11c0 4.5 3 8 7 8s7-3.5 7-8"/><path d="M9 15c1 1 3 1.5 3 1.5s2-.5 3-1.5"/><line x1="12" y1="4" x2="12" y2="6"/></svg></div>
                 <h3>Greek Salad &amp; Roka</h3>
                 <p>Traditional Greek salad with award-worthy olive oil, and our signature roka salad — clean, fresh, and unforgettable.</p>
                 <span class="menu-pill">Garden Fresh</span>
             </div>
             <div class="menu-card reveal">
                 <div class="menu-card-glow"></div>
-                <div class="menu-em">🐚</div>
+                <div class="menu-em"><svg viewBox="0 0 24 24"><path d="M12 21c-5 0-9-4-9-9 0-3.5 2-6.5 5-8"/><path d="M12 21c5 0 9-4 9-9 0-3.5-2-6.5-5-8"/><path d="M8 4c0 0 1 3 4 4s5-1 5-1"/><path d="M12 8c0 0-1 3 1 5s5 2 5 2"/><circle cx="12" cy="12" r="2"/></svg></div>
                 <h3>Oyster Bar</h3>
                 <p>A curated selection of the finest oysters, served fresh on the half shell. Start your evening the right way.</p>
                 <span class="menu-pill">Premium Selection</span>
             </div>
             <div class="menu-card reveal">
                 <div class="menu-card-glow"></div>
-                <div class="menu-em">🔥</div>
+                <div class="menu-em"><svg viewBox="0 0 24 24"><path d="M12 2c0 0 2 4 2 7 0 1.5-.5 3-2 3-1.5 0-2-1.5-2-3 0-1 .5-2 .5-2S7 10 7 14c0 3.5 2.5 6 5 6s5-2.5 5-6c0-5-5-12-5-12z"/></svg></div>
                 <h3>Orfoz Mangal</h3>
                 <p>Grouper on the charcoal grill — a Mediterranean classic that keeps our guests returning season after season.</p>
                 <span class="menu-pill">Best Seller</span>
