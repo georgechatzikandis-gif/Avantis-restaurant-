@@ -334,47 +334,65 @@
         }
 
         /* ── MENU ────────────────────────────────────────────── */
+        /* ── MENU ────────────────────────────────────────────── */
         .menu-bg { background: var(--light); }
-        .menu-grid {
+        .menu-tabs {
+            display: flex; flex-wrap: wrap; gap: 10px;
+            justify-content: center; margin-bottom: 40px;
+        }
+        .menu-tab-btn {
+            padding: 10px 26px; border-radius: 40px;
+            border: 1.5px solid var(--border);
+            background: var(--white); color: var(--text-2);
+            font-size: .82rem; font-weight: 600; letter-spacing: .5px;
+            cursor: pointer; transition: all .25s;
+        }
+        .menu-tab-btn:hover { border-color: var(--blue); color: var(--blue); }
+        .menu-tab-btn.active {
+            background: var(--blue); border-color: var(--blue);
+            color: var(--white); box-shadow: 0 4px 16px rgba(43,130,201,.3);
+        }
+        .dish-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
         }
-        .menu-card {
-            background: var(--white); border: 1.5px solid var(--border);
-            border-radius: 18px; padding: 32px 28px;
-            position: relative; overflow: hidden; transition: all .4s;
-            box-shadow: var(--shadow);
+        .dish-card {
+            background: var(--white); border-radius: 16px;
+            overflow: hidden; box-shadow: var(--shadow);
+            border: 1.5px solid var(--border);
+            transition: transform .3s, box-shadow .3s, border-color .3s;
+            cursor: default;
         }
-        .menu-card-glow {
-            position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: var(--blue); opacity: 0; transition: opacity .3s; border-radius: 2px;
-        }
-        .menu-card:hover {
-            transform: translateY(-6px); border-color: var(--blue-l);
+        .dish-card:hover {
+            transform: translateY(-5px);
             box-shadow: var(--shadow-h);
+            border-color: var(--blue-l);
         }
-        .menu-card:hover .menu-card-glow { opacity: 1; }
-        .menu-em {
-            width: 56px; height: 56px; margin-bottom: 20px;
-            background: var(--blue-pale);
-            border-radius: 16px;
-            display: flex; align-items: center; justify-content: center;
-            transition: background .3s, transform .3s;
+        .dish-img {
+            width: 100%; aspect-ratio: 4/3; object-fit: cover;
+            display: block; image-orientation: from-image;
+            transition: transform .5s;
         }
-        .menu-em svg { width: 28px; height: 28px; color: var(--blue); fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-        .menu-card:hover .menu-em { background: var(--blue); transform: scale(1.08); }
-        .menu-card:hover .menu-em svg { color: var(--white); }
-        .menu-card h3 {
+        .dish-card:hover .dish-img { transform: scale(1.04); }
+        .dish-img-wrap { overflow: hidden; }
+        .dish-names {
+            padding: 14px 16px 16px;
+        }
+        .dish-en {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem; margin-bottom: 10px; color: var(--text);
+            font-size: 1rem; font-weight: 600;
+            color: var(--text); margin-bottom: 4px;
         }
-        .menu-card p { color: var(--text-2); font-size: .88rem; line-height: 1.75; }
-        .menu-pill {
-            display: inline-block;
+        .dish-gr {
+            font-size: .8rem; color: var(--text-3);
+            letter-spacing: .3px;
+        }
+        .dish-cat-badge {
+            display: inline-block; margin-top: 8px;
             background: var(--blue-pale); color: var(--blue);
-            padding: 4px 12px; border-radius: 20px;
-            font-size: .72rem; font-weight: 600; margin-top: 14px;
+            padding: 3px 10px; border-radius: 20px;
+            font-size: .7rem; font-weight: 700; letter-spacing: .5px;
         }
 
         /* ── REVIEWS ─────────────────────────────────────────── */
@@ -611,11 +629,13 @@
             .ft-bar { padding: 18px 24px; flex-direction: column; align-items: flex-start; }
             .gallery-grid { grid-template-columns: 1fr 1fr; }
             .gallery-item img { height: 180px; }
+            .dish-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
         }
         @media (max-width: 480px) {
             .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
             .gallery-grid { grid-template-columns: 1fr 1fr; }
             .gallery-item img { height: 150px; }
+            .dish-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
         }
     </style>
 </head>
@@ -752,53 +772,175 @@
 <section class="section menu-bg" id="menu">
     <div class="section-inner">
         <div class="sec-header reveal">
-            <span class="sec-label">Our Specialties</span>
+            <span class="sec-label">Our Menu · Το Μενού Μας</span>
             <h2 class="sec-title">Fresh From the Aegean</h2>
             <div class="sec-line"></div>
         </div>
-        <div class="menu-grid">
-            <div class="menu-card reveal">
-                <div class="menu-card-glow"></div>
-                <div class="menu-em"><svg viewBox="0 0 24 24"><path d="M21 12c0 0-3-6-9-6S3 12 3 12s3 6 9 6 9-6 9-6z"/><path d="M21 12l2-3M21 12l2 3"/><circle cx="9" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div>
-                <h3>Fresh Fish of the Day</h3>
-                <p>Choose your own fresh catch — grouper, sea bream, dentex — and have it grilled to perfection right in front of you.</p>
-                <span class="menu-pill">Daily Catch</span>
+
+        <!-- Category Tabs -->
+        <div class="menu-tabs">
+            <button class="menu-tab-btn active" data-cat="all">All · Όλα</button>
+            <button class="menu-tab-btn" data-cat="fish">Fish · Ψάρια</button>
+            <button class="menu-tab-btn" data-cat="seafood">Seafood · Θαλασσινά</button>
+            <button class="menu-tab-btn" data-cat="starters">Starters &amp; Salads · Ορεκτικά</button>
+            <button class="menu-tab-btn" data-cat="sides">Sides · Συνοδευτικά</button>
+        </div>
+
+        <!-- Dish Grid -->
+        <div class="dish-grid">
+
+            <!-- FISH -->
+            <div class="dish-card reveal" data-cat="fish">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4612.jpg" alt="Fish in Egg-Lemon Sauce" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Fish in Egg-Lemon Sauce</div>
+                    <div class="dish-gr">Ψάρι Αυγολέμονο</div>
+                    <span class="dish-cat-badge">FISH</span>
+                </div>
             </div>
-            <div class="menu-card reveal">
-                <div class="menu-card-glow"></div>
-                <div class="menu-em"><svg viewBox="0 0 24 24"><path d="M12 3c0 0 4 2 4 7 0 3-2 5-4 6"/><path d="M12 3c0 0-4 2-4 7 0 3 2 5 4 6"/><path d="M8 16c-2 1-3 3-2 5"/><path d="M16 16c2 1 3 3 2 5"/><path d="M12 16v3"/><circle cx="12" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg></div>
-                <h3>Symi Shrimp Saganaki</h3>
-                <p>Our legendary dish — premium shrimp from Symi waters, baked in rich tomato sauce with feta cheese. A house obsession.</p>
-                <span class="menu-pill">House Specialty</span>
+            <div class="dish-card reveal" data-cat="fish">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4613.jpg" alt="Grilled Sea Bass" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Grilled Sea Bass</div>
+                    <div class="dish-gr">Λαβράκι Σχάρας</div>
+                    <span class="dish-cat-badge">FISH</span>
+                </div>
             </div>
-            <div class="menu-card reveal">
-                <div class="menu-card-glow"></div>
-                <div class="menu-em"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="8" rx="4" ry="5"/><path d="M8 11c0 0-4 2-4 7"/><path d="M16 11c0 0 4 2 4 7"/><path d="M10 13l-2 8"/><path d="M14 13l2 8"/><path d="M12 13v8"/></svg></div>
-                <h3>Freshly Caught Calamari</h3>
-                <p>Tender calamari grilled or lightly fried, served with a wedge of lemon. Perfectly simple, perfectly Greek.</p>
-                <span class="menu-pill">Freshly Caught</span>
+            <div class="dish-card reveal" data-cat="fish">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4614.jpg" alt="Grilled Sea Bream" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Grilled Sea Bream</div>
+                    <div class="dish-gr">Τσιπούρα Σχάρας</div>
+                    <span class="dish-cat-badge">FISH</span>
+                </div>
             </div>
-            <div class="menu-card reveal">
-                <div class="menu-card-glow"></div>
-                <div class="menu-em"><svg viewBox="0 0 24 24"><path d="M3 11h18"/><path d="M5 11C5 7 8 4 12 4s7 3 7 7"/><path d="M5 11c0 4.5 3 8 7 8s7-3.5 7-8"/><path d="M9 15c1 1 3 1.5 3 1.5s2-.5 3-1.5"/><line x1="12" y1="4" x2="12" y2="6"/></svg></div>
-                <h3>Greek Salad &amp; Roka</h3>
-                <p>Traditional Greek salad with award-worthy olive oil, and our signature roka salad — clean, fresh, and unforgettable.</p>
-                <span class="menu-pill">Garden Fresh</span>
+            <div class="dish-card reveal" data-cat="fish">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4615.jpg" alt="Whole Grilled Fish" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Whole Grilled Fish</div>
+                    <div class="dish-gr">Ψάρι Σχάρας</div>
+                    <span class="dish-cat-badge">FISH</span>
+                </div>
             </div>
-            <div class="menu-card reveal">
-                <div class="menu-card-glow"></div>
-                <div class="menu-em"><svg viewBox="0 0 24 24"><path d="M12 21c-5 0-9-4-9-9 0-3.5 2-6.5 5-8"/><path d="M12 21c5 0 9-4 9-9 0-3.5-2-6.5-5-8"/><path d="M8 4c0 0 1 3 4 4s5-1 5-1"/><path d="M12 8c0 0-1 3 1 5s5 2 5 2"/><circle cx="12" cy="12" r="2"/></svg></div>
-                <h3>Oyster Bar</h3>
-                <p>A curated selection of the finest oysters, served fresh on the half shell. Start your evening the right way.</p>
-                <span class="menu-pill">Premium Selection</span>
+            <div class="dish-card reveal" data-cat="fish">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4624.jpg" alt="Fried Fish with Garlic Sauce" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Fried Fish with Garlic Sauce</div>
+                    <div class="dish-gr">Μπακαλιάρος Σκορδαλιά</div>
+                    <span class="dish-cat-badge">FISH</span>
+                </div>
             </div>
-            <div class="menu-card reveal">
-                <div class="menu-card-glow"></div>
-                <div class="menu-em"><svg viewBox="0 0 24 24"><path d="M12 2c0 0 2 4 2 7 0 1.5-.5 3-2 3-1.5 0-2-1.5-2-3 0-1 .5-2 .5-2S7 10 7 14c0 3.5 2.5 6 5 6s5-2.5 5-6c0-5-5-12-5-12z"/></svg></div>
-                <h3>Orfoz Mangal</h3>
-                <p>Grouper on the charcoal grill — a Mediterranean classic that keeps our guests returning season after season.</p>
-                <span class="menu-pill">Best Seller</span>
+            <div class="dish-card reveal" data-cat="fish">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4625.jpg" alt="Fried Fish" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Fried Fish</div>
+                    <div class="dish-gr">Ψάρι Τηγανητό</div>
+                    <span class="dish-cat-badge">FISH</span>
+                </div>
             </div>
+
+            <!-- SEAFOOD -->
+            <div class="dish-card reveal" data-cat="seafood">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4616.jpg" alt="King Crab Legs" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">King Crab Legs</div>
+                    <div class="dish-gr">Βασιλόκαβουρας</div>
+                    <span class="dish-cat-badge">SEAFOOD</span>
+                </div>
+            </div>
+            <div class="dish-card reveal" data-cat="seafood">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4620.jpg" alt="Fried Shrimp" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Fried Shrimp</div>
+                    <div class="dish-gr">Γαρίδες Τηγανητές</div>
+                    <span class="dish-cat-badge">SEAFOOD</span>
+                </div>
+            </div>
+            <div class="dish-card reveal" data-cat="seafood">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4622.jpg" alt="Fried Calamari" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Fried Calamari</div>
+                    <div class="dish-gr">Καλαμαράκια Τηγανητά</div>
+                    <span class="dish-cat-badge">SEAFOOD</span>
+                </div>
+            </div>
+            <div class="dish-card reveal" data-cat="seafood">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4629.jpg" alt="Fried Whitebait" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Fried Whitebait</div>
+                    <div class="dish-gr">Μαρίδες Τηγανητές</div>
+                    <span class="dish-cat-badge">SEAFOOD</span>
+                </div>
+            </div>
+
+            <!-- STARTERS & SALADS -->
+            <div class="dish-card reveal" data-cat="starters">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4619.jpg" alt="Feta with Olive Oil" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Feta with Olive Oil &amp; Oregano</div>
+                    <div class="dish-gr">Φέτα με Ελαιόλαδο &amp; Ρίγανη</div>
+                    <span class="dish-cat-badge">STARTERS</span>
+                </div>
+            </div>
+            <div class="dish-card reveal" data-cat="starters">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4628.jpg" alt="Tomato Fritters" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Tomato Fritters</div>
+                    <div class="dish-gr">Ντοματοκεφτέδες</div>
+                    <span class="dish-cat-badge">STARTERS</span>
+                </div>
+            </div>
+            <div class="dish-card reveal" data-cat="starters">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4631.jpg" alt="Green Salad with Feta" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Green Salad with Feta</div>
+                    <div class="dish-gr">Μαρουλοσαλάτα με Φέτα</div>
+                    <span class="dish-cat-badge">SALADS</span>
+                </div>
+            </div>
+            <div class="dish-card reveal" data-cat="starters">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4632.jpg" alt="Greek Salad" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Greek Salad</div>
+                    <div class="dish-gr">Χωριάτικη Σαλάτα</div>
+                    <span class="dish-cat-badge">SALADS</span>
+                </div>
+            </div>
+
+            <!-- SIDES -->
+            <div class="dish-card reveal" data-cat="sides">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4618.jpg" alt="Green Beans in Olive Oil" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Green Beans in Olive Oil</div>
+                    <div class="dish-gr">Φασολάκια Λαδερά</div>
+                    <span class="dish-cat-badge">SIDES</span>
+                </div>
+            </div>
+            <div class="dish-card reveal" data-cat="sides">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4626.jpg" alt="Roasted Tomatoes" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Roasted Tomatoes</div>
+                    <div class="dish-gr">Ντομάτες Ψητές</div>
+                    <span class="dish-cat-badge">SIDES</span>
+                </div>
+            </div>
+            <div class="dish-card reveal" data-cat="sides">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4627.jpg" alt="Hand-Cut Fries" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Hand-Cut Fries</div>
+                    <div class="dish-gr">Τηγανητές Πατάτες</div>
+                    <span class="dish-cat-badge">SIDES</span>
+                </div>
+            </div>
+            <div class="dish-card reveal" data-cat="sides">
+                <div class="dish-img-wrap"><img class="dish-img" src="assets/menu/IMG_4630.jpg" alt="Toasted Bread" loading="lazy"></div>
+                <div class="dish-names">
+                    <div class="dish-en">Toasted Bread with Olive Oil</div>
+                    <div class="dish-gr">Ψωμί Φρυγανισμένο</div>
+                    <span class="dish-cat-badge">SIDES</span>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -1063,6 +1205,21 @@
         a.addEventListener('click', e => {
             const t = document.querySelector(a.getAttribute('href'));
             if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+    });
+
+    // Menu tabs
+    const menuTabs = document.querySelectorAll('.menu-tab-btn');
+    const dishCards = document.querySelectorAll('.dish-card');
+    menuTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            menuTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const cat = tab.dataset.cat;
+            dishCards.forEach(card => {
+                const show = cat === 'all' || card.dataset.cat === cat;
+                card.style.display = show ? '' : 'none';
+            });
         });
     });
 
