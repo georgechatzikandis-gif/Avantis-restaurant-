@@ -47,12 +47,14 @@
             box-shadow: 0 2px 24px rgba(30,80,130,.1);
         }
         .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem; color: var(--white);
-            text-decoration: none; letter-spacing: 1px;
-            transition: color .3s;
+            text-decoration: none; display: flex; align-items: center;
         }
-        nav.scrolled .nav-logo { color: var(--blue); }
+        .nav-logo img {
+            height: 44px; width: auto;
+            filter: brightness(0) invert(1);
+            transition: filter .35s;
+        }
+        nav.scrolled .nav-logo img { filter: none; }
         .nav-links { display: flex; gap: 32px; list-style: none; }
         .nav-links a {
             color: rgba(255,255,255,.85); text-decoration: none;
@@ -479,10 +481,10 @@
             font-size: .7rem; letter-spacing: 3px; text-transform: uppercase;
             color: var(--blue-l); margin-bottom: 20px; font-weight: 700;
         }
-        .ft-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem; color: var(--white); font-style: italic;
-            margin-bottom: 4px; line-height: 1;
+        .ft-logo img {
+            height: 60px; width: auto;
+            filter: brightness(0) invert(1);
+            margin-bottom: 16px; display: block;
         }
         .ft-sub { color: rgba(255,255,255,.3); font-size: .7rem; letter-spacing: 3px; margin-bottom: 20px; }
         .ft-tagline { color: rgba(255,255,255,.45); font-size: .88rem; line-height: 1.7; margin-bottom: 24px; }
@@ -621,7 +623,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-    <a href="#" class="nav-logo">Avantis</a>
+    <a href="#" class="nav-logo"><img src="assets/logo.png" alt="Avantis Fish Restaurant"></a>
     <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#menu">Menu</a></li>
@@ -983,8 +985,7 @@
     <div class="ft-main">
         <!-- Col 1: Brand -->
         <div>
-            <div class="ft-logo">Avantis</div>
-            <div class="ft-sub">FISH RESTAURANT</div>
+            <div class="ft-logo"><img src="assets/logo.png" alt="Avantis Fish Restaurant"></div>
             <p class="ft-tagline">Fresh from the Aegean, straight to your table. An authentic seafood experience steps from the beach in Afantou, Rhodes.</p>
             <div class="ft-contact-row">
                 <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
