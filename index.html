@@ -227,7 +227,6 @@
         .review-cta p {
             color: var(--text-2); font-size: .92rem; margin-bottom: 16px;
         }
-        .ft-review { margin: 22px 0; }
 
         /* scroll mouse */
         .scroll-hint {
@@ -468,19 +467,59 @@
 
         /* ── FOOTER ──────────────────────────────────────────── */
         footer {
-            background: #0f1e2e; padding: 55px 50px;
-            text-align: center;
+            background: #0a1628;
             border-top: 3px solid var(--blue);
+        }
+        .ft-main {
+            display: grid; grid-template-columns: 1.4fr 1fr 1.4fr;
+            gap: 50px; max-width: 1180px; margin: 0 auto;
+            padding: 64px 50px 48px;
+        }
+        .ft-col-title {
+            font-size: .7rem; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--blue-l); margin-bottom: 20px; font-weight: 700;
         }
         .ft-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2.1rem; color: var(--white); font-style: italic; margin-bottom: 6px;
+            font-size: 2.2rem; color: var(--white); font-style: italic;
+            margin-bottom: 4px; line-height: 1;
         }
-        .ft-sub { color: rgba(255,255,255,.35); font-size: .76rem; letter-spacing: 3px; margin-bottom: 30px; }
-        .ft-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin-bottom: 30px; }
-        .ft-links a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .82rem; transition: color .3s; }
-        .ft-links a:hover { color: var(--blue-l); }
+        .ft-sub { color: rgba(255,255,255,.3); font-size: .7rem; letter-spacing: 3px; margin-bottom: 20px; }
+        .ft-tagline { color: rgba(255,255,255,.45); font-size: .88rem; line-height: 1.7; margin-bottom: 24px; }
+        .ft-contact-row {
+            display: flex; align-items: center; gap: 10px;
+            color: rgba(255,255,255,.5); font-size: .85rem; margin-bottom: 10px;
+        }
+        .ft-contact-row svg { width: 15px; height: 15px; fill: var(--blue-l); flex-shrink: 0; }
+        .ft-contact-row a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .3s; }
+        .ft-contact-row a:hover { color: var(--blue-l); }
+        .ft-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .ft-links a { color: rgba(255,255,255,.45); text-decoration: none; font-size: .88rem; transition: color .3s; display: flex; align-items: center; gap: 8px; }
+        .ft-links a::before { content: ''; display: inline-block; width: 16px; height: 1px; background: var(--blue); flex-shrink: 0; transition: width .3s; }
+        .ft-links a:hover { color: var(--white); }
+        .ft-links a:hover::before { width: 24px; }
+        .ft-hours { margin-bottom: 24px; }
+        .ft-hours-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.06); font-size: .82rem; }
+        .ft-hours-row span:first-child { color: rgba(255,255,255,.4); }
+        .ft-hours-row span:last-child { color: rgba(255,255,255,.7); }
+        .ft-review-btn {
+            display: inline-flex; align-items: center; gap: 9px;
+            border: 1.5px solid rgba(255,255,255,.2); color: rgba(255,255,255,.7);
+            padding: 11px 22px; border-radius: 40px; font-size: .82rem;
+            text-decoration: none; transition: all .3s; font-weight: 600;
+        }
+        .ft-review-btn:hover { border-color: #f5c842; color: #f5c842; transform: translateY(-2px); }
+        .ft-bar {
+            border-top: 1px solid rgba(255,255,255,.07);
+            max-width: 1180px; margin: 0 auto;
+            padding: 20px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 12px;
+        }
         .ft-copy { color: rgba(255,255,255,.2); font-size: .76rem; }
+        .ft-bar-links { display: flex; gap: 20px; }
+        .ft-bar-links a { color: rgba(255,255,255,.2); text-decoration: none; font-size: .76rem; transition: color .3s; }
+        .ft-bar-links a:hover { color: rgba(255,255,255,.5); }
 
         /* ── SCROLL REVEAL ───────────────────────────────────── */
         .reveal { opacity: 0; transform: translateY(32px); transition: opacity .75s ease, transform .75s ease; }
@@ -494,26 +533,21 @@
         /* ── GALLERY ─────────────────────────────────────────── */
         .gallery-bg { background: var(--light); }
         .gallery-grid {
-            display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
         }
         .gallery-item {
-            overflow: hidden; border-radius: 14px;
+            overflow: hidden; border-radius: 12px;
             cursor: pointer; position: relative;
             box-shadow: var(--shadow);
         }
-        .gallery-item:nth-child(1) { grid-column: span 7; }
-        .gallery-item:nth-child(2) { grid-column: span 5; }
-        .gallery-item:nth-child(3) { grid-column: span 4; }
-        .gallery-item:nth-child(4) { grid-column: span 4; }
-        .gallery-item:nth-child(5) { grid-column: span 4; }
         .gallery-item img {
-            width: 100%; height: 320px; object-fit: cover;
+            width: 100%; height: 220px; object-fit: cover;
             display: block; transition: transform .55s ease;
             image-orientation: from-image;
         }
-        .gallery-item:nth-child(1) img,
-        .gallery-item:nth-child(2) img { height: 380px; }
-        .gallery-item:hover img { transform: scale(1.06); }
+        .gallery-item:hover img { transform: scale(1.07); }
         .gallery-item::after {
             content: ''; position: absolute; inset: 0;
             background: linear-gradient(rgba(43,130,201,.0), rgba(43,130,201,.55));
@@ -571,19 +605,15 @@
             .location-left { padding: 50px 28px; }
             .location-map-wrap iframe { min-height: 380px; }
             .hero-cta { flex-direction: column; align-items: center; }
-            footer { padding: 50px 24px; }
+            .ft-main { grid-template-columns: 1fr; gap: 36px; padding: 50px 24px 32px; }
+            .ft-bar { padding: 18px 24px; flex-direction: column; align-items: flex-start; }
             .gallery-grid { grid-template-columns: 1fr 1fr; }
-            .gallery-item:nth-child(n) { grid-column: span 1; }
-            .gallery-item img,
-            .gallery-item:nth-child(1) img,
-            .gallery-item:nth-child(2) img { height: 220px; }
+            .gallery-item img { height: 180px; }
         }
         @media (max-width: 480px) {
             .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .gallery-item img,
-            .gallery-item:nth-child(1) img,
-            .gallery-item:nth-child(2) img { height: 260px; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-item img { height: 150px; }
         }
     </style>
 </head>
@@ -919,26 +949,23 @@
             <div class="sec-line"></div>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item reveal" onclick="openLb(0)">
-                <img src="assets/p1.jpeg" alt="Avantis outdoor dining area">
-                <span class="gallery-zoom">⊕</span>
-            </div>
-            <div class="gallery-item reveal" onclick="openLb(1)">
-                <img src="assets/p5.jpeg" alt="Avantis restaurant sign">
-                <span class="gallery-zoom">⊕</span>
-            </div>
-            <div class="gallery-item reveal" onclick="openLb(2)">
-                <img src="assets/p2.jpeg" alt="Avantis table setting indoor">
-                <span class="gallery-zoom">⊕</span>
-            </div>
-            <div class="gallery-item reveal" onclick="openLb(3)">
-                <img src="assets/p3.jpeg" alt="Avantis table setting outdoor">
-                <span class="gallery-zoom">⊕</span>
-            </div>
-            <div class="gallery-item reveal" onclick="openLb(4)">
-                <img src="assets/p4.jpeg" alt="Avantis restaurant exterior">
-                <span class="gallery-zoom">⊕</span>
-            </div>
+            <div class="gallery-item reveal" onclick="openLb(0)"><img src="assets/p1.jpeg" alt="Avantis outdoor dining"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(1)"><img src="assets/IMG_4014.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(2)"><img src="assets/IMG_4015.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(3)"><img src="assets/IMG_4021.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(4)"><img src="assets/IMG_4022.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(5)"><img src="assets/p2.jpeg" alt="Avantis table setting indoor"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(6)"><img src="assets/IMG_4023.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(7)"><img src="assets/IMG_4024.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(8)"><img src="assets/p3.jpeg" alt="Avantis outdoor setting"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(9)"><img src="assets/IMG_4026.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(10)"><img src="assets/IMG_4028.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(11)"><img src="assets/p4.jpeg" alt="Avantis exterior"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(12)"><img src="assets/IMG_4030.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(13)"><img src="assets/IMG_4031.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(14)"><img src="assets/IMG_4033.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(15)"><img src="assets/IMG_4034.jpeg" alt="Avantis restaurant"><span class="gallery-zoom">⊕</span></div>
+            <div class="gallery-item reveal" onclick="openLb(16)"><img src="assets/p5.jpeg" alt="Avantis sign"><span class="gallery-zoom">⊕</span></div>
         </div>
     </div>
 </section>
@@ -953,25 +980,54 @@
 
 <!-- FOOTER -->
 <footer>
-    <div class="ft-logo">Avantis</div>
-    <div class="ft-sub">FISH RESTAURANT · AFANTOU, RHODES</div>
-    <div class="ft-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#menu">Menu</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#location">Location</a>
-        <a href="tel:2241051280">2241 051280</a>
+    <div class="ft-main">
+        <!-- Col 1: Brand -->
+        <div>
+            <div class="ft-logo">Avantis</div>
+            <div class="ft-sub">FISH RESTAURANT</div>
+            <p class="ft-tagline">Fresh from the Aegean, straight to your table. An authentic seafood experience steps from the beach in Afantou, Rhodes.</p>
+            <div class="ft-contact-row">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span>Afantou 851 03, Rhodes, Greece</span>
+            </div>
+            <div class="ft-contact-row">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <a href="tel:2241051280">2241 051 280</a>
+            </div>
+        </div>
+        <!-- Col 2: Navigation -->
+        <div>
+            <div class="ft-col-title">Navigation</div>
+            <ul class="ft-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#menu">Our Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+        </div>
+        <!-- Col 3: Hours + Review -->
+        <div>
+            <div class="ft-col-title">Opening Hours</div>
+            <div class="ft-hours">
+                <div class="ft-hours-row"><span>Monday – Friday</span><span>12:00 – 23:00</span></div>
+                <div class="ft-hours-row"><span>Saturday</span><span>12:00 – 24:00</span></div>
+                <div class="ft-hours-row"><span>Sunday</span><span>12:00 – 23:00</span></div>
+            </div>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJU4dqHxtvlRQRU2eiiZjeW0I"
+               target="_blank" rel="noopener" class="ft-review-btn">
+                ★&thinsp;★&thinsp;★&thinsp;★&thinsp;★&ensp; Leave a Google Review
+            </a>
+        </div>
     </div>
-    <div class="ft-review">
-        <a href="https://search.google.com/local/writereview?placeid=ChIJU4dqHxtvlRQRU2eiiZjeW0I"
-           target="_blank" rel="noopener"
-           class="btn-review btn-review-footer">
-            ★&thinsp;★&thinsp;★&thinsp;★&thinsp;★&ensp; Αφήστε κριτική στο Google
-        </a>
+    <div class="ft-bar">
+        <div class="ft-copy">© 2024 Avantis Fish Restaurant · Afantou 851 03, Rhodes, Greece</div>
+        <div class="ft-bar-links">
+            <a href="https://www.google.com/maps/search/Avantis+Fish+Restaurant+Afantou+Rhodes" target="_blank" rel="noopener">Google Maps</a>
+            <a href="tel:2241051280">Call Us</a>
+        </div>
     </div>
-    <div class="ft-copy">© 2024 Avantis Fish Restaurant · Afantou 851 03, Rhodes, Greece</div>
 </footer>
 
 <script>
@@ -1012,10 +1068,22 @@
     // Lightbox
     const lbSrcs = [
         'assets/p1.jpeg',
-        'assets/p5.jpeg',
+        'assets/IMG_4014.jpeg',
+        'assets/IMG_4015.jpeg',
+        'assets/IMG_4021.jpeg',
+        'assets/IMG_4022.jpeg',
         'assets/p2.jpeg',
+        'assets/IMG_4023.jpeg',
+        'assets/IMG_4024.jpeg',
         'assets/p3.jpeg',
-        'assets/p4.jpeg'
+        'assets/IMG_4026.jpeg',
+        'assets/IMG_4028.jpeg',
+        'assets/p4.jpeg',
+        'assets/IMG_4030.jpeg',
+        'assets/IMG_4031.jpeg',
+        'assets/IMG_4033.jpeg',
+        'assets/IMG_4034.jpeg',
+        'assets/p5.jpeg'
     ];
     let lbIdx = 0;
     const lb = document.getElementById('lightbox');
