@@ -370,13 +370,18 @@
             box-shadow: var(--shadow-h);
             border-color: var(--blue-l);
         }
+        .dish-img-wrap {
+            overflow: hidden;
+            background: var(--light);
+            padding: 10px;
+            line-height: 0;
+        }
         .dish-img {
-            width: 100%; aspect-ratio: 4/3; object-fit: cover;
+            width: 100%; aspect-ratio: 4/3; object-fit: contain;
             display: block; image-orientation: from-image;
             transition: transform .5s;
         }
         .dish-card:hover .dish-img { transform: scale(1.04); }
-        .dish-img-wrap { overflow: hidden; }
         .dish-names {
             padding: 14px 16px 16px;
         }
