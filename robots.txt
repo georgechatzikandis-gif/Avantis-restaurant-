@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://georgechatzikandis-gif.github.io/Avantis-restaurant-/sitemap.xml
