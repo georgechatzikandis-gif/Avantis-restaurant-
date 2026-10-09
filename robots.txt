@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://georgechatzikandis-gif.github.io/Avantis-restaurant-/sitemap.xml
+Sitemap: https://avantisfish-restaurant.gr/sitemap.xml
